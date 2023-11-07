@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct SelectiReminderView: View {
+    var habits:HabitsDataBinding
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(habits.display())
+//        Text(habits.map{String($0)}.joined(separator: ", "))
     }
 }
 
-#Preview {
-    SelectiReminderView()
-}
+//#Preview {
+//    SelectiReminderView(habits: [1,2,3])
+//}

@@ -23,32 +23,6 @@ var hapticTypes = [
     "Click": WKHapticType.click,
 ]
 
-var reminders = [
-    ("背单词", "Study vocabulary"),
-    //    ("吃药", "Take medication"),
-    //    ("健身", "Exercise"),
-    //    ("遛狗", "Walk the dog"),
-    //    ("学乐器", "Practice an instrument"),
-    //    ("编码", "Code"),
-    //    ("画画", "Paint"),
-    //    ("学语言", "Learn a language"),
-    //    ("清洁", "Clean"),
-    //    ("野餐", "Have a picnic"),
-    //    ("读信", "Check mail"),
-    //    ("浏览网站", "Browse websites"),
-    //    ("探索", "Explore"),
-    //    ("休息", "Relax"),
-    //    ("学习", "Study"),
-    //    ("阅读", "Read"),
-    //    ("写作", "Write"),
-    //    ("瑜伽", "Yoga"),
-    //    ("冥想", "Meditate"),
-    ("购物", "Shop"),
-    ("烹饪", "Cook"),
-    ("洗衣", "Laundry"),
-    ("打电话", "Call"),
-    ("工作", "Work")
-]
 
 
 struct ContentView: View {
@@ -56,6 +30,7 @@ struct ContentView: View {
     @State private var txt = ""
     @State private var confirm = false
     
+
     var body: some View {
         let notify = hapticTypes["Notification"]
         let directionUp = hapticTypes["DirectionUp"]
@@ -67,8 +42,11 @@ struct ContentView: View {
         let stop = hapticTypes["Stop"]
         let click = hapticTypes["Click"]
         
+        let reminders = ReminderJobs().jobs
         var arrHabits = Array(repeating: -1, count: reminders.count)
-    
+
+        let habits = HabitsDataBinding(arrHabits: arrHabits)
+        
 
         NavigationView{
             ScrollView {
@@ -80,16 +58,24 @@ struct ContentView: View {
                         Button(action: {
                             // 按钮被点击时执行的操作
                             print("Button \(proxy) tapped")
+                            print("This is habits: \(habits.display())")
+
                             WKInterfaceDevice.current().play(click!)
-                            if arrHabits[proxy] == 0 {
+                            if habits.arrHabits[proxy] == -1 {
+                                // Never
                                 arrHabits[proxy] = 1
+                                habits.setValue(num: proxy, setVal: 1)
+                                
                             }
                             else{
                                 arrHabits[proxy] = 0
+                                habits.setValue(num: proxy, setVal: 0)
                             }
                         }, label: {
                             Text(chinese)
-                        })
+                        }).onTapGesture {
+                            print("This is habits: \(habits.display())")
+                        }
                     }
                 }
                 HStack(content: {
@@ -106,18 +92,17 @@ struct ContentView: View {
                     
                     
                     NavigationLink(
-                        "", destination: Text("HOLA!"),
+                        "", destination: SelectiReminderView(habits:habits ),
                         isActive: $confirm
-                    ).onTapGesture(perform: {
-                        
-                    })
+                    )
                     .frame(maxWidth: 1,maxHeight: 1)
                     .hidden()
-                    sss
+                    
                     
                     Button(action: {
                         // 按钮被点击时执行的操作
                         print("Button YES tapped")
+                        print(habits.display())
                         print(arrHabits)
                         WKInterfaceDevice.current().play(success!)
                         confirm.toggle()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3452FE2AFAE52F00AE05EF /* HabitsDataBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3452FD2AFAE52F00AE05EF /* HabitsDataBinding.swift */; };
 		2F9BE49B2AD93616006158F8 /* hello WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2F9BE49A2AD93616006158F8 /* hello WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2F9BE4A02AD9361A006158F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F9BE49F2AD9361A006158F8 /* Assets.xcassets */; };
 		2F9BE4A62AD9361A006158F8 /* hello WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2F9BE4A52AD9361A006158F8 /* hello WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -21,6 +22,7 @@
 		2F9BE4CE2AD9361B006158F8 /* helloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BE4CD2AD9361B006158F8 /* helloUITests.swift */; };
 		2F9BE4D02AD9361B006158F8 /* helloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BE4CF2AD9361B006158F8 /* helloUITestsLaunchTests.swift */; };
 		2FB30BAC2AEB8E5300033DC6 /* SelectiReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */; };
+		2FBC7C612AEE107400AF9426 /* ReminderJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC7C602AEE107400AF9426 /* ReminderJobs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F3452FD2AFAE52F00AE05EF /* HabitsDataBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsDataBinding.swift; sourceTree = "<group>"; };
 		2F9BE4962AD93616006158F8 /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9BE49A2AD93616006158F8 /* hello WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hello WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9BE49F2AD9361A006158F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		2F9BE4CD2AD9361B006158F8 /* helloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloUITests.swift; sourceTree = "<group>"; };
 		2F9BE4CF2AD9361B006158F8 /* helloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectiReminderView.swift; sourceTree = "<group>"; };
+		2FBC7C602AEE107400AF9426 /* ReminderJobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderJobs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,11 +169,13 @@
 				2F9BE4AC2AD9361A006158F8 /* ContentView.swift */,
 				2F9BE4AE2AD9361A006158F8 /* NotificationController.swift */,
 				2F9BE4B02AD9361A006158F8 /* NotificationView.swift */,
+				2FBC7C602AEE107400AF9426 /* ReminderJobs.swift */,
 				2F9BE4B22AD9361A006158F8 /* ComplicationController.swift */,
 				2F9BE4B42AD9361B006158F8 /* Assets.xcassets */,
 				2F9BE4B92AD9361B006158F8 /* Info.plist */,
 				2F9BE4BA2AD9361B006158F8 /* PushNotificationPayload.apns */,
 				2F9BE4B62AD9361B006158F8 /* Preview Content */,
+				2F3452FD2AFAE52F00AE05EF /* HabitsDataBinding.swift */,
 			);
 			path = "hello WatchKit Extension";
 			sourceTree = "<group>";
@@ -388,9 +394,11 @@
 			files = (
 				2F9BE4AF2AD9361A006158F8 /* NotificationController.swift in Sources */,
 				2F9BE4AD2AD9361A006158F8 /* ContentView.swift in Sources */,
+				2F3452FE2AFAE52F00AE05EF /* HabitsDataBinding.swift in Sources */,
 				2F9BE4B32AD9361A006158F8 /* ComplicationController.swift in Sources */,
 				2F9BE4AB2AD9361A006158F8 /* helloApp.swift in Sources */,
 				2FB30BAC2AEB8E5300033DC6 /* SelectiReminderView.swift in Sources */,
+				2FBC7C612AEE107400AF9426 /* ReminderJobs.swift in Sources */,
 				2F9BE4B12AD9361A006158F8 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
