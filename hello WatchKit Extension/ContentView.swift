@@ -8,9 +8,6 @@
 import SwiftUI
 import Foundation
 import UserNotifications
-
-
-
 var hapticTypes = [
     "Notification": WKHapticType.notification,
     "DirectionUp": WKHapticType.directionUp,
@@ -29,7 +26,7 @@ struct ContentView: View {
     @State private var opacity = 0.0
     @State private var txt = ""
     @State private var confirm = false
-    
+    @State private var submitHabits = false
 
     var body: some View {
         let notify = hapticTypes["Notification"]
@@ -89,28 +86,41 @@ struct ContentView: View {
                     })
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .buttonStyle(BorderedButtonStyle()).tint(Color.red)
+
                     
                     
                     NavigationLink(
-                        "", destination: SelectiReminderView(habits:habits ),
+                        "", destination: SelectiReminderView(habits:habits)
+//                            .navigationBarBackButtonHidden(true) -> delete this when ready
+                        ,
                         isActive: $confirm
                     )
+//                    .navigationBarBackButtonHidden(true)
                     .frame(maxWidth: 1,maxHeight: 1)
                     .hidden()
+                    
                     
                     
                     Button(action: {
                         // 按钮被点击时执行的操作
                         print("Button YES tapped")
                         print(habits.display())
+                        submitHabits = submitCheck(arr: habits.arrHabits)
+                        
                         print(arrHabits)
                         WKInterfaceDevice.current().play(success!)
-                        confirm.toggle()
+                        if(!submitCheck(arr: habits.arrHabits)){
+                            confirm.toggle()
+                        }
+                        else{
+                            print("BUZZZ")
+                        }
                     }, label: {
                         Text("YES!🐮")
                     })
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .buttonStyle(BorderedButtonStyle()).tint(Color.green)
+                    .alert("You haven't select any habit yet.", isPresented: $submitHabits, actions: {})
                     
                     
                 }
@@ -123,6 +133,34 @@ struct ContentView: View {
         
         
     }}
+
+/// Checks if all elements in the array satisfy a specific condition.
+///
+/// This function takes an array of integers and checks if all elements in the array satisfy
+/// the condition that each element is less than and equal 0.
+///
+/// - Parameters:
+///   - arr: An array of integers to be checked.
+///
+/// - Returns: `true` if all elements in the array are less than 0; otherwise, it returns `false`.
+///
+/// - Note: If the input array is empty, the function will return `true` since there are no elements
+/// to evaluate, and by default, the condition is satisfied.
+///
+/// Example:
+/// ```
+/// let positiveArray = [1, 2, 3]
+/// let negativeArray = [-1, -2, -3]
+/// let emptyArray: [Int] = []
+///
+/// let isAllNegative1 = submitCheck(arr: positiveArray) // false
+/// let isAllNegative2 = submitCheck(arr: negativeArray) // true
+/// let isAllNegative3 = submitCheck(arr: emptyArray) // true
+/// ```
+func submitCheck(arr: [Int]) -> Bool {
+    return arr.allSatisfy { $0 <= 0 }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
