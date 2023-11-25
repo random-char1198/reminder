@@ -11,7 +11,19 @@ struct SelectiReminderView: View {
     var habits:HabitsDataBinding
     
     var body: some View {
-        Text(habits.display())
+        ScrollView(content: {
+            Text(habits.display())
+            VStack(content: {
+                ForEach(habits.arrHabits.indices, id: \.self){ index in
+                    if (habits.arrHabits[index] == 1){
+                        Button("\(habits.retrieveItem(id: index))", action: {})
+                    }
+//                    Text("\(habits.arrHabits[index])")
+                }
+
+            })
+        })
+
 //        Text(habits.map{String($0)}.joined(separator: ", "))
     }
 }

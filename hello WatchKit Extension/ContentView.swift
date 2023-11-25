@@ -120,7 +120,7 @@ struct ContentView: View {
                     })
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .buttonStyle(BorderedButtonStyle()).tint(Color.green)
-                    .alert("You haven't select any habit yet.", isPresented: $submitHabits, actions: {})
+                    .alert("You did not any habit yet.", isPresented: $submitHabits, actions: {})
                     
                     
                 }
