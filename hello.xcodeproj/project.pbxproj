@@ -23,6 +23,7 @@
 		2F9BE4D02AD9361B006158F8 /* helloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BE4CF2AD9361B006158F8 /* helloUITestsLaunchTests.swift */; };
 		2FB30BAC2AEB8E5300033DC6 /* SelectiReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */; };
 		2FBC7C612AEE107400AF9426 /* ReminderJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC7C602AEE107400AF9426 /* ReminderJobs.swift */; };
+		2FEE7D622B13D2A000F69DB8 /* CustomizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE7D612B13D2A000F69DB8 /* CustomizeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		2F9BE4CF2AD9361B006158F8 /* helloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectiReminderView.swift; sourceTree = "<group>"; };
 		2FBC7C602AEE107400AF9426 /* ReminderJobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderJobs.swift; sourceTree = "<group>"; };
+		2FEE7D612B13D2A000F69DB8 /* CustomizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +166,9 @@
 		2F9BE4A92AD9361A006158F8 /* hello WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2FEE7D602B13CFAF00F69DB8 /* ButtonConfig */,
 				2F9BE4AA2AD9361A006158F8 /* helloApp.swift */,
+				2F3452FD2AFAE52F00AE05EF /* HabitsDataBinding.swift */,
 				2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */,
 				2F9BE4AC2AD9361A006158F8 /* ContentView.swift */,
 				2F9BE4AE2AD9361A006158F8 /* NotificationController.swift */,
@@ -175,7 +179,6 @@
 				2F9BE4B92AD9361B006158F8 /* Info.plist */,
 				2F9BE4BA2AD9361B006158F8 /* PushNotificationPayload.apns */,
 				2F9BE4B62AD9361B006158F8 /* Preview Content */,
-				2F3452FD2AFAE52F00AE05EF /* HabitsDataBinding.swift */,
 			);
 			path = "hello WatchKit Extension";
 			sourceTree = "<group>";
@@ -203,6 +206,14 @@
 				2F9BE4CF2AD9361B006158F8 /* helloUITestsLaunchTests.swift */,
 			);
 			path = helloUITests;
+			sourceTree = "<group>";
+		};
+		2FEE7D602B13CFAF00F69DB8 /* ButtonConfig */ = {
+			isa = PBXGroup;
+			children = (
+				2FEE7D612B13D2A000F69DB8 /* CustomizeButton.swift */,
+			);
+			path = ButtonConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +405,7 @@
 			files = (
 				2F9BE4AF2AD9361A006158F8 /* NotificationController.swift in Sources */,
 				2F9BE4AD2AD9361A006158F8 /* ContentView.swift in Sources */,
+				2FEE7D622B13D2A000F69DB8 /* CustomizeButton.swift in Sources */,
 				2F3452FE2AFAE52F00AE05EF /* HabitsDataBinding.swift in Sources */,
 				2F9BE4B32AD9361A006158F8 /* ComplicationController.swift in Sources */,
 				2F9BE4AB2AD9361A006158F8 /* helloApp.swift in Sources */,
