@@ -32,7 +32,7 @@ class HabitsDataBinding: ObservableObject {
     
 
     func display() -> String {
-        var s:String = "5️⃣This is Habits Data binding => \(_arrHabits)"
+        let s:String = "5️⃣This is Habits Data binding => \(_arrHabits)"
         return s
     }
     

@@ -27,7 +27,9 @@ struct SelectiReminderView: View {
 //                            toggleButtonState(index: index)
 //                        }
                         let name = habits.retrieveItem(id: index)
-                        CustomizeButton(title: name, hapticName: .success, color: Color.brown, action: {})
+                        CustomizeButton(title: name, hapticName: .success, color: nil, action: {
+                            toggleButtonState(index: index)
+                        })
                         .background(backgroundColor(for: index)) // change background colour based on each button.
                         .cornerRadius(24) // making sure background alaso has corner radius
                     }
@@ -44,7 +46,7 @@ struct SelectiReminderView: View {
             case .green:
                 buttonStates[index] = .red
             case .red:
-                buttonStates[index] = .normal
+                buttonStates[index] = .green
         }
     }
     

@@ -9,84 +9,92 @@ import SwiftUI
 import Foundation
 import UserNotifications
 
+
 struct ContentView: View {
-    @State private var opacity = 0.0
-    @State private var txt = ""
-    @State private var confirm = false
-    @State private var submitHabits = false
+@State private var opacity = 0.0
+@State private var txt = ""
+@State private var confirm = false
+@State private var submitHabits = false
+    
+    
 
-    var body: some View {
-        let reminders = ReminderJobs().jobs
-        var arrHabits = Array(repeating: -1, count: reminders.count)
+var body: some View {
+    let reminders = ReminderJobs().jobs
+    var arrHabits = Array(repeating: -1, count: reminders.count)
 
-        let habits = HabitsDataBinding(arrHabits: arrHabits)
-        
+    let habits = HabitsDataBinding(arrHabits: arrHabits)
+    
 
-        NavigationView{
-            ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(reminders.indices,id:\.self) {proxy in
-                        let english = reminders[proxy].1
-                        let chinese = reminders[proxy].0
-                        
-                        CustomizeButton(title: chinese, hapticName: .click, color: nil, action: {
-                            if habits.arrHabits[proxy] == -1 {
-                                // Never
-                                arrHabits[proxy] = 1
-                                habits.setValue(num: proxy, setVal: 1)
-                                
-                            }
-                            else{
+    NavigationView{
+        ScrollView {
+            VStack(alignment: .leading) {
+                ForEach(reminders.indices,id:\.self) {proxy in
+                    let english = reminders[proxy].1
+                    let chinese = reminders[proxy].0
+                    
+                    CustomizeButton(title: chinese, hapticName: .click, color: nil, action: {
+                        if (habits.arrHabits[proxy] == -1 ){
+                            // Never, hence all -1
+                            arrHabits[proxy] = 1
+                            habits.setValue(num: proxy, setVal: 1)
+                            
+                        }
+                        else{
+                            if(habits.arrHabits[proxy] == 1){
                                 arrHabits[proxy] = 0
                                 habits.setValue(num: proxy, setVal: 0)
                             }
-                        }).onTapGesture {
-                            print("This is habits: \(habits.display())")
+                            else{
+                                // only 0 here
+                                arrHabits[proxy] = 1
+                                habits.setValue(num: proxy, setVal: 1)
+                            }
                         }
-                        
-                    }
-                }
-                HStack(content: {
-                    CustomizeButton(title: "Cancel", hapticName: .failure, action: {
-                        print("Button CANCEL tapped")
                     })
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                    .buttonStyle(BorderedButtonStyle()).tint(Color.red)
-                    NavigationLink(
-                        "", destination: SelectiReminderView(habits:habits)
-//                            .navigationBarBackButtonHidden(true) -> delete this when ready
-                        ,
-                        isActive: $confirm
-                    )
-//                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: 1,maxHeight: 1)
-                    .hidden()
                     
-                    
-                    CustomizeButton(title: "YES!🐮", hapticName: .success, action: {
-                        print("Button YES tapped")
-                        submitHabits = submitCheck(arr: habits.arrHabits)
-                        if(!submitCheck(arr: habits.arrHabits)){
-                            confirm.toggle()
-                        }
-                        else{
-                            print("BUZZZ")
-                        }
-                    })
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                    .buttonStyle(BorderedButtonStyle()).tint(Color.green)
-                    .alert("You did not any habit yet.", isPresented: $submitHabits, actions: {
-                    })
                 }
-                )
-                
             }
+            HStack(content: {
+                CustomizeButton(title: "Cancel", hapticName: .failure, action: {
+                    print("Button CANCEL tapped")
+                })
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .buttonStyle(BorderedButtonStyle()).tint(Color.red)
+                NavigationLink(
+                    "", destination: SelectiReminderView(habits:habits)
+                        .navigationBarBackButtonHidden(true)// -> delete this when ready
+                    ,
+                    isActive: $confirm
+                )
+                .frame(maxWidth: 1,maxHeight: 1)
+                .hidden()
+                
+                
+                CustomizeButton(title: "YES!🐮", hapticName: .success, action: {
+                    print("Button YES tapped")
+                    submitHabits = submitCheck(arr: habits.arrHabits)
+                    if(!submitHabits){
+                        confirm.toggle()
+                    }
+                    else{
+                        print("BUZZZ")
+                    }
+                })
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .buttonStyle(BorderedButtonStyle()).tint(Color.green)
+                .alert("You did not any habit yet.", isPresented: $submitHabits, actions: {
+                })
+            }
+            )
+            
         }
-        
-        
-        
-        
-    }}
+    }
+    
+    
+    
+    
+}}
+
 
 /// Checks if all elements in the array satisfy a specific condition.
 ///
@@ -115,11 +123,10 @@ func submitCheck(arr: [Int]) -> Bool {
     return arr.allSatisfy { $0 <= 0 }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+static var previews: some View {
+    ContentView()
+}
 }
 
 
