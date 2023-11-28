@@ -166,10 +166,10 @@
 		2F9BE4A92AD9361A006158F8 /* hello WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2FEE7D642B156BE400F69DB8 /* Views */,
 				2FEE7D602B13CFAF00F69DB8 /* ButtonConfig */,
 				2F9BE4AA2AD9361A006158F8 /* helloApp.swift */,
 				2F3452FD2AFAE52F00AE05EF /* HabitsDataBinding.swift */,
-				2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */,
 				2F9BE4AC2AD9361A006158F8 /* ContentView.swift */,
 				2F9BE4AE2AD9361A006158F8 /* NotificationController.swift */,
 				2F9BE4B02AD9361A006158F8 /* NotificationView.swift */,
@@ -214,6 +214,14 @@
 				2FEE7D612B13D2A000F69DB8 /* CustomizeButton.swift */,
 			);
 			path = ButtonConfig;
+			sourceTree = "<group>";
+		};
+		2FEE7D642B156BE400F69DB8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FB30BAB2AEB8E5300033DC6 /* SelectiReminderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
