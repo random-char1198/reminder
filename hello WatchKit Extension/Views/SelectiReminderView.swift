@@ -14,12 +14,15 @@ struct SelectiReminderView: View {
     }
     
     @State private var buttonStates: [Int: ButtonState] = [:]
+    let currentDate:Date = Date()
     
     var habits:HabitsDataBinding
     
     var body: some View {
         ScrollView {
-            Text(habits.display())
+//            Text(habits.display())
+            Text(formatDate())
+                .frame(maxWidth: .infinity, alignment: .leading)
             VStack {
                 ForEach(habits.arrHabits.indices, id: \.self) { index in
                     if habits.arrHabits[index] == 1 {
@@ -35,6 +38,14 @@ struct SelectiReminderView: View {
                     }
                 }
             }
+            HStack(content: {
+                Button("", systemImage: "arrowshape.left.fill", action: {
+                    //switching date
+                })
+                Button("",systemImage: "arrowshape.right.fill",action: {
+                    
+                })
+            })
         }
     }
     
@@ -60,6 +71,15 @@ struct SelectiReminderView: View {
             case .red:
                 return .red
         }
+    }
+    private func formatDate() -> String{
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+
+        let dateString = formatter.string(from: currentDate)
+        
+        return dateString
     }
 }
 

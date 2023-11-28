@@ -14,6 +14,7 @@ struct CustomizeButton: View {
     var color: Color?
     var cornerRadius: CGFloat = 22
     
+//    var systemImg: String
     var action: () -> Void
         
     var body: some View{
@@ -22,6 +23,11 @@ struct CustomizeButton: View {
             action()
             
         }){
+//            if !systemImg.isEmpty{
+//                HStack(content: {
+//                    
+//                })
+//            }
             Text(title)
             
             
