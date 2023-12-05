@@ -9,6 +9,12 @@ import SwiftUI
 
 @main
 struct helloApp: App {
+    init() {
+        if let bundleID = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+            print("Deleted")
+        }
+    }
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {

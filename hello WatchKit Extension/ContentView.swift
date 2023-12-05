@@ -56,7 +56,7 @@ var body: some View {
             }
             HStack(content: {
                 CustomizeButton(title: "Cancel", hapticName: .failure, action: {
-                    print("Button CANCEL tapped")
+//                    print("Button CANCEL tapped")
                 })
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .buttonStyle(BorderedButtonStyle()).tint(Color.red)
@@ -71,7 +71,7 @@ var body: some View {
                 
                 
                 CustomizeButton(title: "YES!🐮", hapticName: .success, action: {
-                    print("Button YES tapped")
+//                    print("Button YES tapped")
                     submitHabits = submitCheck(arr: habits.arrHabits)
                     if(!submitHabits){
                         confirm.toggle()
